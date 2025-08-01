@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-an81fbh17ms(-6ag=v^i2_e@bz!e$i+$w_fypcwtsucrn9l1xr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cartridge-system-84g7.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 
