@@ -7,4 +7,3 @@ export const loginUser = (data) => axios.post(`${BASE_URL}/login/`, data);
 
 // ✅ Add this for JWT login
 export const getToken = (data) => axios.post(`${BASE_URL}/token/`, data);
-
