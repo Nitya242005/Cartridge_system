@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = 'https://cartridge-system-2.onrender.com/api';
 
 export const registerUser = (data) => axios.post(`${BASE_URL}/register/`, data);
 export const loginUser = (data) => axios.post(`${BASE_URL}/login/`, data);
