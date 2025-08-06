@@ -1,0 +1,87 @@
+/* Gradient background */
+.admin-dashboard {
+  background: linear-gradient(#ffffff);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  background-color: #1c1c1c;
+  color: white;
+  width: 250px;
+  padding: 1.5rem;
+  height: 100vh;
+}
+
+.admin-sidebar .sidebar-option {
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.admin-sidebar .sidebar-option:hover {
+  color: #17c0eb; /* light cyan on hover */
+}
+
+/* Highlight active */
+.admin-sidebar .active {
+  color: #00bcd4; /* material cyan */
+}
+
+/* Profile Image */
+.profile-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Main Content */
+.admin-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Card Style */
+.card-shadow {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.heading-bold {
+  font-weight: bold;
+}
+/* Stock Table */
+.admin-main table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-main th, .admin-main td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.admin-main .btn-sm {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.admin-main .btn-outline-primary,
+.admin-main .btn-outline-secondary {
+  margin-right: 4px;
+}
+
+/* Accepted Requests section */
+.accepted-request-card {
+  background: #f9f9f9;
+  border-left: 5px solid #28a745;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
