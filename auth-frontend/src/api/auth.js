@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import axios from 'axios';
 const BASE_URL = 'https://cartridge-system-2.onrender.com/api/'; // ✅ Include trailing slash
 axios.post(`${BASE_URL}register/`, data); // ✅ becomes ".../api/register/"
 
