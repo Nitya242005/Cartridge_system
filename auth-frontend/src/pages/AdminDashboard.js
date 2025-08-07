@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import axios from 'axios';
 import defaultProfile from '../assets/default-profile.png';
 import './AdminDashboard.css';
+import { BASE_URL } from '../api/config';
 
 function AdminDashboard() {
   const [requests, setRequests] = useState([]);
@@ -27,25 +28,29 @@ function AdminDashboard() {
   };
 
   const fetchRequests = useCallback(() => {
-    axios.get('http://localhost:8000/api/admin/requests/', { headers })
+    axios.get(`${BASE_URL}admin/requests/`, { headers })
+
       .then(res => setRequests(res.data))
       .catch(err => console.error(err));
   }, [headers]);
 
   const fetchAcceptedRequests = useCallback(() => {
-    axios.get('http://localhost:8000/api/admin/requests/accepted/', { headers })
+    axios.get(`${BASE_URL}admin/requests/accepted/`, { headers })
+
       .then(res => setAcceptedRequests(res.data))
       .catch(err => console.error(err));
   }, [headers]);
 
   const fetchStock = useCallback(() => {
-    axios.get('http://localhost:8000/api/admin/stock/', { headers })
+    axios.get(`${BASE_URL}admin/stock/`, { headers })
+
       .then(res => setStockItems(res.data))
       .catch(err => console.error(err));
   }, [headers]);
 
   const fetchStockLogs = useCallback(() => {
-    axios.get('http://localhost:8000/api/admin/stock-updates/', { headers })
+    axios.get(`${BASE_URL}admin/stock-updates/`, { headers })
+
       .then(res => setStockLogs(res.data))
       .catch(err => console.error(err));
   }, [headers]);
@@ -62,7 +67,8 @@ function AdminDashboard() {
   };
 
   const handleAccept = (requestId) => {
-    axios.post(`http://localhost:8000/api/admin/requests/${requestId}/accept/`, {}, { headers })
+    axios.post(`${BASE_URL}admin/requests/${requestId}/accept/`, {}, { headers })
+
       .then(() => {
         alert('✅ Request Accepted!');
         fetchRequests();
@@ -84,7 +90,7 @@ function AdminDashboard() {
   };
 
   const handleEditSave = (id) => {
-    axios.patch(`http://localhost:8000/api/admin/stock/${id}/update/`, {
+    axios.patch(`${BASE_URL}admin/stock/${id}/update/`, {
       make: editedItem.make,
       model: editedItem.model,
       quantity: parseInt(editedItem.quantity)
@@ -106,7 +112,7 @@ function AdminDashboard() {
       return;
     }
 
-    axios.post('http://localhost:8000/api/admin/stock/add/', {
+    axios.post(`${BASE_URL}admin/stock/add/`, {
       make: newStockItem.make,
       model: newStockItem.model,
       quantity: parseInt(newStockItem.quantity)
