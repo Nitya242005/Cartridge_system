@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './UserDashboard.css';
 import defaultProfile from '../assets/default-profile.png';
+import { BASE_URL } from '../api/config'; // ✅ Add this
+
 
 function UserDashboard() {
   const [storedUsername, setStoredUsername] = useState('');
@@ -59,7 +61,7 @@ function UserDashboard() {
 
   const fetchUserRequests = useCallback(async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/user/requests/', {
+      const res = await fetch(`${BASE_URL}user/requests/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -73,7 +75,7 @@ function UserDashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this request?")) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/user/requests/${id}/delete/`, {
+      const res = await fetch(`${BASE_URL}user/requests/${id}/delete/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -102,7 +104,7 @@ function UserDashboard() {
     };
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/save-request/', {
+      const res = await fetch(`${BASE_URL}save-request/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
